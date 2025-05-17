@@ -26,18 +26,21 @@
                     <td>{{ $pelicula->director }}</td>
                     <td>{{ $pelicula->fecha_estreno }}</td>
                     <td>
-                        <a href="{{ route('peliculas.editar', $pelicula->id) }}" class="btn btn-danger btn-sm ">Editar</a>
-                        <form action="{{ route('peliculas.eliminar', $pelicula->id) }}" method="POST" style="display:inline-block;">
-                     @csrf
-                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta película?')">Eliminar</button>
+                <div style="display: flex; gap: 10px;">
+                        <a href="{{ route('peliculas.editar', $pelicula->id) }}" class="btn btn-danger btn-sm">Editar✍🏻</a>
+                    <form action="{{ route('peliculas.eliminar', $pelicula->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                    <button type="submit" class="btn btn-dark btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta película?' )">Eliminar🗑️</button>
                     </form>
-                    </td>
+                </div>
+                </td>
+
             @endforeach
         </tbody>
     </table>
     <div class="mt-5 text-center">
-    <a href="{{ route('peliculas.agregar') }}" class="btn btn-outline-danger">Agregar Nueva Película</a>
+        <a href="{{ route('peliculas.agregar') }}" class="btn btn-dark">Agregar Nueva Película </a>
     </div>
 @endsection
 

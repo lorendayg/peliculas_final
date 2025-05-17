@@ -18,10 +18,19 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nombre',
+        'apellido',
+        'usuario',
         'password',
     ];
+
+    /**
+     * El campo que se utiliza para la autenticación.
+     */
+    public function getAuthIdentifierName()
+    {
+        return 'usuario'; // Aquí se indica que se debe usar el campo 'usuario'
+    }
 
     /**
      * The attributes that should be hidden for serialization.

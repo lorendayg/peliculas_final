@@ -15,6 +15,12 @@ class CatalogoController extends Controller
     public function inicio() {
         return view('inicio');
     }
+    public function login() {
+        return view('login');
+    }
+    public function registro() {
+        return view('registro');
+    }
 
     public function listado() {
         $peliculas = Catalogo::all();
@@ -47,6 +53,7 @@ class CatalogoController extends Controller
 
     return redirect()->route('peliculas.index')->with('success', 'Película eliminada correctamente.');
     }
+    
 
 
 

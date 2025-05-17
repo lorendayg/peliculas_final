@@ -7,15 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalogo extends Model
 {
-    protected $table = 'catalogo';
-//protect $table = "catalogo";
-protected $fillable = [
-    'titulo',
-    'descripcion',
-    'genero',
-    'director',
-    'fecha_estreno'
-];
-
     use HasFactory;
+
+    protected $table = 'catalogo';  // Asegúrate que coincida con tu tabla en BD
+
+    protected $fillable = [
+        'titulo',
+        'descripcion',
+        'genero',
+        'director',
+        'fecha_estreno',
+    ];
 }
+
