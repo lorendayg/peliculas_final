@@ -9,7 +9,7 @@ class Catalogo extends Model
 {
     use HasFactory;
 
-    protected $table = 'catalogo';  // Asegúrate que coincida con tu tabla en BD
+    protected $table = 'catalogo'; 
 
     protected $fillable = [
         'titulo',

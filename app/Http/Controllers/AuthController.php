@@ -8,26 +8,31 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function login(Request $request)
-    {
-        if ($request->isMethod('post')) {
-        // Validación de los campos en POST
+{
+    // Si ya está autenticado, lo mandamos a /peliculas
+    if (Auth::check()) {
+        return redirect('/peliculas');
+    }
+
+    if ($request->isMethod('post')) {
+        // Validación
         $credentials = $request->validate([
             'usuario' => ['required'],
             'password' => ['required'],
         ]);
 
-        // Intento de login
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); // Previene sesión hijacking
+            $request->session()->regenerate();
             return redirect()->intended('/peliculas');
         }
 
         return back()->withErrors([
-            'usuario' => 'Las credenciales no coinciden.',
+            'usuario' => 'La contraseña o usuario son incorrectos.',
         ])->onlyInput('usuario');
     }
 
-        return view('login');
+    // Mostrar formulario de login
+    return view('login');
 }
 
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.navbar_inicio')
 
 @section('title', 'Inicio de Sesión')
 
@@ -19,12 +19,18 @@
 
                 <div class="mb-3">
                     <label class="form-label text-danger" for="usuario"><i class="fa-solid fa-envelope me-2"></i> Usuario</label>
-                    <input class="form-control" id="usuario" name="usuario" type="text" required>
+                    <input class="form-control" id="usuario" name="usuario" type="text">
+                     @error('usuario')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label text-danger" for="password"><i class="fa-solid fa-lock me-2"></i> Contraseña</label>
-                    <input class="form-control" id="password" name="password" type="password" required>
+                    <input class="form-control" id="password" name="password" type="password" >
+                    @error('password')
+                        <small class="text-danger">{{ $message }}</small>
+                    @enderror
                 </div>
 
                 <button class="btn btn-danger w-100" type="submit">

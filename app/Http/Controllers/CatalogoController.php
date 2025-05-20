@@ -28,10 +28,18 @@ class CatalogoController extends Controller
     }
 
     public function agregar() {
-        return view('agregar');
+        return view('agregar'
+    );
     }
 
     public function guardar(Request $request) {
+        $request->validate([
+            'titulo' => ['required'],
+            'descripcion' => ['required'],
+            'genero' => ['required'],
+            'director' => ['required'],
+            'fecha_estreno' => ['required'],
+        ]);
         Catalogo::create($request->all());
         return redirect()->route('peliculas.index');
     }

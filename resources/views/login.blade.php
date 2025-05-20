@@ -21,7 +21,7 @@
             @csrf
 
             <div class="form-floating mb-2 text-danger">
-                <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Usuario" value="{{ old('usuario') }}">
+                <input name="usuario" id="usuario" type="text" class="form-control" placeholder="Usuario" autocomplete="off">
                 <label for="usuario"><i class="fa-solid fa-user me-2 "></i>Usuario</label>
                 @error('usuario')
                     <div class="text-danger small">{{ $message }}</div>

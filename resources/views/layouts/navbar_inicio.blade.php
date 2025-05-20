@@ -20,26 +20,13 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    @auth
-                        <li class="nav-item">
-                            <span class="nav-link text-light">{{ Auth::user()->usuario }}</span>
-                        </li>
-                        <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="btn btn-outline-danger btn-sm ms-2">
-                                    <i class="fa-solid fa-right-from-bracket me-1"></i> Cerrar sesión
-                                </button>
-                            </form>
-                        </li>
-<!--                     @else
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="{{ route('login') }}">Iniciar sesión</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-danger" href="{{ route('registro') }}">Registrarse</a>
                         </li>
-                    @endauth -->
+                    
                 </ul>
             </div>
         </div>
